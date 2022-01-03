@@ -1,25 +1,34 @@
-import logo from './logo.svg';
+
 import './App.css';
+import TopBar from './Components/TopBar/TopBar'
+import Feed from './Pages/Feed/Feed';
+import Manage from './Pages/Manage/Manage'
+import { Routes, Route } from "react-router-dom";
+import Trending from './Pages/Trending/Trending';
+
+
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <TopBar/>
+      <Routes>
+        <Route path="/" element={ <Feed/>} />
+        <Route path="/manage" element={<Manage/>} /> 
+        <Route path="/trending" element={<Trending/>} />     
+      
+      
+      </Routes>
+      
+
+
+    </>
   );
 }
 
 export default App;
+
+//6QSMK6YW9M17TJVG1ZTYEMRIUUUWQHER8Q
+//1438269973
+//1610143998
