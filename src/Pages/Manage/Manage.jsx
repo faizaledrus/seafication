@@ -1,15 +1,58 @@
-import React from 'react'
+import React , {useState} from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {Card, Col, Row, Container,  Badge, Table} from 'react-bootstrap';
+import {Card, Form, Modal, Col, Row, Container,  Badge, Table, Button} from 'react-bootstrap';
 import { BiTrash } from "react-icons/bi"; 
 
 
 
 function Manage() {
-    
+    const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
     return (
+        <>
+         <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>Add New Alert</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+                <Form>
+            <Form.Group as={Row} className="mb-3" controlId="formPlaintextEmail">
+                <Form.Label column sm="4">
+                Wallet Address
+                </Form.Label>
+                <Col sm="8">
+                <Form.Control placeholder="Wallet Address"/>
+                </Col>
+            </Form.Group>
+
+            <Form.Group as={Row} className="mb-3" controlId="formPlaintextPassword">
+                <Form.Label column sm="4">
+                Password
+                </Form.Label>
+                <Col sm="8">
+                <Form.Control type="password" placeholder="Password" />
+                </Col>
+            </Form.Group>
+        </Form>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose}>
+            Close
+          </Button>
+          <Button variant="primary" onClick={handleClose}>
+            Save Changes
+          </Button>
+        </Modal.Footer>
+      </Modal>
+
+        
         <Container>
+        <div className="d-grid gap-2" xs={8}>
+        <Button size="lg"  onClick={handleShow}>Add New Alert</Button>
+        </div>
             <Row>
             <Col></Col>
                 <Col xs={8} >
@@ -53,6 +96,7 @@ function Manage() {
             <Col></Col>
             </Row>
         </Container>
+        </>
     )
 }
 
