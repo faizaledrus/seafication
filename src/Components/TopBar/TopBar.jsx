@@ -8,11 +8,23 @@ import { Link } from "react-router-dom";
 import {Button, Container} from 'react-bootstrap';
 import { BiHomeAlt,BiCode,BiCoinStack,BiWater,BiCloudUpload } from "react-icons/bi"; 
 
+import { useEthers } from '@usedapp/core'
+
 function TopBar() {
+
+const { activateBrowserWallet, account } = useEthers()
+
+if (account){
+    console.log ("Logged in")
+} else {
+    console.log( "login please" )
+}
+
     return (
 <>
-      <header>
-          <div class="px-3 py-2 bg-dark text-white">
+      <header> 
+          
+          <div class="px-3 py-2 bg-dark text-white">          
               <Container>
               <div class="d-flex align-items-center my-2 my-lg-0 me-lg-auto text-white text-decoration-none">
                 <div class="d-flex align-items-center my-2 my-lg-0 me-lg-auto text-white text-decoration-none">
@@ -42,14 +54,21 @@ function TopBar() {
               </Container>
           </div>
           <div class="px-3 py-2 border-bottom mb-3">
+          <div>
+            <div>
+                
+            </div>
+            
+        </div>
             <div class="container d-flex flex-wrap justify-content-center">
                 <div class="col-12 col-lg-auto mb-2 mb-lg-0 me-lg-auto">
-                    Breadcrumb here
+                
+                {account && <div>Account: {account}</div>} 
                 </div>
 
                 <div class="text-end">
-                <Button variant="btn btn-light text-dark me-2">Login</Button>
-                <Button variant="btn btn-primary">Sign Up</Button>
+                <Button variant="btn btn-light text-dark me-2" onClick={() => activateBrowserWallet()}>Connect</Button>
+                
                 </div>
             </div>
             </div>

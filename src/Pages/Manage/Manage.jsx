@@ -1,61 +1,29 @@
 import React , {useState} from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {Card, Form, Modal, Col, Row, Container,  Badge, Table, Button} from 'react-bootstrap';
-import { BiTrash } from "react-icons/bi"; 
 
+import {Card,  Col, Row, Container,  Badge, Table} from 'react-bootstrap';
+
+import { BiTrash } from "react-icons/bi"; 
+import { Link } from "react-router-dom";
 
 
 function Manage() {
-    const [show, setShow] = useState(false);
 
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+//     const [show, setShow] = useState(false);
+
+//   const handleClose = () => setShow(false);
+//   const handleShow = () => setShow(true);
 
     return (
-        <>
-         <Modal show={show} onHide={handleClose}>
-        <Modal.Header closeButton>
-          <Modal.Title>Add New Alert</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-                <Form>
-            <Form.Group as={Row} className="mb-3" controlId="formPlaintextEmail">
-                <Form.Label column sm="4">
-                Wallet Address
-                </Form.Label>
-                <Col sm="8">
-                <Form.Control placeholder="Wallet Address"/>
-                </Col>
-            </Form.Group>
-
-            <Form.Group as={Row} className="mb-3" controlId="formPlaintextPassword">
-                <Form.Label column sm="4">
-                Password
-                </Form.Label>
-                <Col sm="8">
-                <Form.Control type="password" placeholder="Password" />
-                </Col>
-            </Form.Group>
-        </Form>
-        </Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            Close
-          </Button>
-          <Button variant="primary" onClick={handleClose}>
-            Save Changes
-          </Button>
-        </Modal.Footer>
-      </Modal>
-
-        
+        <>      
         <Container>
-        <div className="d-grid gap-2" xs={8}>
-        <Button size="lg"  onClick={handleShow}>Add New Alert</Button>
+        <div >
         </div>
             <Row>
             <Col></Col>
-                <Col xs={8} >
+                <Col  >
+                    <Link to="/manage/wallet">Add Wallet</Link>   -                   
+                    <Link to="/manage/project">Add Project</Link>
                 <Card>
                     <Table striped  hover variant="dark">
                     <thead>
