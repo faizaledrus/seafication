@@ -1,7 +1,9 @@
 import React from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {Card, Col, Row, Container,  Badge, Table} from 'react-bootstrap';
+import {Card, Col, Row, Container,  Badge, Table, Button} from 'react-bootstrap';
 import { BiTrash } from "react-icons/bi"; 
+import { Link } from "react-router-dom";
+
 
 
 
@@ -13,6 +15,8 @@ function Manage() {
             <Row>
             <Col></Col>
                 <Col xs={8} >
+                    <Link to="/manage/wallet">Add Wallet</Link>   -                   
+                    <Link to="/manage/project">Add Project</Link>
                 <Card>
                     <Table striped  hover variant="dark">
                     <thead>
