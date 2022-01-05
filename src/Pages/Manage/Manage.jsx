@@ -1,60 +1,84 @@
-import React from 'react'
+import React, { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {Card, Col, Row, Container,  Badge, Table, Button} from 'react-bootstrap';
-import { BiTrash } from "react-icons/bi"; 
+import { Card, Col, Row, Container, Badge, Table, Button } from 'react-bootstrap';
+import { BiTrash } from "react-icons/bi";
 import { Link } from "react-router-dom";
+import axios from 'axios';
+import { useEthers } from '@usedapp/core';
 
 
 
 
 function Manage() {
-    
+    const { activateBrowserWallet, account } = useEthers();
+    // let fetch = useRef(false).current
+    const [data, setdata] = useState([])
+   
+    const getData = () => {
+        console.log(account,"ahashah")
+        
+        axios.get(`http://localhost:5000/getwallet?id=${account}`).then(res => {
+           console.log(res.data.wallet)
+           setdata(res.data.wallet)
+        })
+     
+    }
+    useLayoutEffect(() => {
+        getData()
+        console.log(data, "ini data")
+
+        return () => {
+            setdata([])
+      
+            // cleanup
+        }
+    }, [account])
 
     return (
         <Container>
             <Row>
-            <Col></Col>
+                <Col></Col>
                 <Col xs={8} >
-                    <Link to="/manage/wallet">Add Wallet</Link>   -                   
+                    <Link to="/manage/wallet">Add Wallet</Link>   -
                     <Link to="/manage/project">Add Project</Link>
-                <Card>
-                    <Table striped  hover variant="dark">
-                    <thead>
-                        <tr>
-                        <th>#</th>
-                        <th>ALERT NAME</th>
-                        <th>Address</th>
-                        <th></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                        <td>1</td>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>
-                            <Badge>
-                                <BiTrash/>
-                            </Badge>
-                            <img  src="https://storage.googleapis.com/opensea-static/Logomark/Logomark-Blue.svg" height="15px"alt=""></img>
-                        </td>
-                        </tr>
-                        <tr>
-                        <td>2</td>
-                        <td>Jacob</td>
-                        <td></td>
-                        <td>@fat</td>
-                        </tr>
-                        <tr>
-                        <td>3</td>
-                        <td colSpan={2}>Larry the Bird</td>
-                        <td>@twitter</td>
-                        </tr>
-                    </tbody>
-                    </Table>
+                    <Card>
+                        <Table striped hover variant="dark">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>ALERT NAME</th>
+                                    <th>Address</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                {
+                                    typeof data!=="undefined" &&
+                                    data.map((item, index) => {
+                                        return (
+                                            <>
+
+                                                <tr key={index}>
+                                                    <td>{index+1}</td>
+                                                    <td>{item.name}</td>
+                                                    <td>{item.wallet}</td>
+                                                    <td>
+                                                        <Badge>
+                                                            <BiTrash />
+                                                        </Badge>
+                                                        <img src="https://storage.googleapis.com/opensea-static/Logomark/Logomark-Blue.svg" height="15px" alt=""></img>
+                                                    </td>
+                                                </tr>
+                                            </>
+                                        )
+                                    })
+                                }
+                            </tbody>
+                        </Table>
                     </Card>
                 </Col>
-            <Col></Col>
+                <Col></Col>
             </Row>
         </Container>
     )
