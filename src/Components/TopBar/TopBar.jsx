@@ -11,6 +11,8 @@ import { useEthers } from "@usedapp/core";
 import axios from 'axios';
 
 
+import { useEthers } from '@usedapp/core'
+
 function TopBar() {
 
     const { activateBrowserWallet, account } = useEthers();

@@ -7,8 +7,6 @@ import axios from 'axios';
 import { useEthers } from '@usedapp/core';
 
 
-
-
 function Manage() {
     const { activateBrowserWallet, account } = useEthers();
     // let fetch = useRef(false).current
@@ -35,7 +33,10 @@ function Manage() {
     }, [account])
 
     return (
+        <>      
         <Container>
+        <div >
+        </div>
             <Row>
                 <Col></Col>
                 <Col xs={8} >
@@ -81,6 +82,7 @@ function Manage() {
                 <Col></Col>
             </Row>
         </Container>
+        </>
     )
 }
 

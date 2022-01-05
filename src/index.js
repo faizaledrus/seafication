@@ -3,12 +3,13 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-
+import { Mainnet, DAppProvider, Config } from '@usedapp/core'
 import { BrowserRouter } from "react-router-dom";
 import { DAppProvider } from "@usedapp/core";
 
 
 ReactDOM.render(
+  
   <React.StrictMode>
     <BrowserRouter>
     <DAppProvider config={{}}>

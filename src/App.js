@@ -1,5 +1,3 @@
-
-import './App.css';
 import TopBar from './Components/TopBar/TopBar'
 import Feed from './Pages/Feed/Feed';
 import Manage from './Pages/Manage/Manage'
@@ -7,12 +5,28 @@ import { Routes, Route } from "react-router-dom";
 import Trending from './Pages/Trending/Trending';
 import AddWallet from './Pages/AddWallet/AddWallet';
 
-
-
+import {useSelector, useDispatch}from "react-redux";
+import {bindActionCreators} from "redux";
+import { actionCreators } from "./store/index"
 
 function App() {
+    
+  const account = useSelector ((state) =>state.account)
+  const dispatch = useDispatch()
+
+  const {depositMoney, withdrawMoney} = bindActionCreators(actionCreators,dispatch);
+  //console.log(AC)
+
+  // ada error di sini...
+  const depositHandler=()=>{
+    depositMoney(1000);
+  }
   return (
     <>
+    
+    <h1>{account}</h1>
+    <button onClick={depositHandler}> Deposit</button>
+    <button onClick={() => withdrawMoney(1000)}>Withdraw</button>
       <TopBar/>
       <Routes>
         <Route path="/" element={ <Feed/>} />
