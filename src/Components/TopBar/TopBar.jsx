@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 import { Button, Container } from 'react-bootstrap';
 import { BiHomeAlt, BiCode, BiCoinStack, BiWater, BiCloudUpload } from "react-icons/bi";
 
-import { useEthers } from "@usedapp/core";
+// import { useEthers } from "@usedapp/core";
 import axios from 'axios';
 
 

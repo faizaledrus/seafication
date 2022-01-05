@@ -11,22 +11,22 @@ import { actionCreators } from "./store/index"
 
 function App() {
     
-  const account = useSelector ((state) =>state.account)
-  const dispatch = useDispatch()
+  // const account = useSelector ((state) =>state.account)
+  // const dispatch = useDispatch()
 
-  const {depositMoney, withdrawMoney} = bindActionCreators(actionCreators,dispatch);
-  //console.log(AC)
+  // const {depositMoney, withdrawMoney} = bindActionCreators(actionCreators,dispatch);
+  // //console.log(AC)
 
-  // ada error di sini...
-  const depositHandler=()=>{
-    depositMoney(1000);
-  }
+  // // ada error di sini...
+  // const depositHandler=()=>{
+  //   depositMoney(1000);
+  // }
   return (
     <>
     
-    <h1>{account}</h1>
-    <button onClick={depositHandler}> Deposit</button>
-    <button onClick={() => withdrawMoney(1000)}>Withdraw</button>
+    {/* <h1>{account}</h1> */}
+    {/* <button onClick={depositHandler}> Deposit</button>
+    <button onClick={() => withdrawMoney(1000)}>Withdraw</button> */}
       <TopBar/>
       <Routes>
         <Route path="/" element={ <Feed/>} />
