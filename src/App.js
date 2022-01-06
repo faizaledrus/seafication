@@ -8,6 +8,7 @@ import AddWallet from './Pages/AddWallet/AddWallet';
 import {useSelector, useDispatch}from "react-redux";
 import {bindActionCreators} from "redux";
 import { actionCreators } from "./store/index"
+import Settings from './Pages/Settings/Settings';
 
 function App() {
     
@@ -33,6 +34,7 @@ function App() {
         <Route path="/manage" element={<Manage/>} /> 
         <Route path="/manage/wallet" element={<AddWallet/>} /> 
         <Route path="/trending" element={<Trending/>} />     
+        <Route path="/settings" element={<Settings/>} />     
       
       
       </Routes>

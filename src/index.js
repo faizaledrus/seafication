@@ -6,6 +6,8 @@ import reportWebVitals from './reportWebVitals';
 import { Mainnet, DAppProvider, Config } from '@usedapp/core'
 import { BrowserRouter } from "react-router-dom";
 import { Provider } from 'react-redux';
+import '@coreui/coreui/dist/css/coreui.min.css'
+
 // import { DAppProvider } from "@usedapp/core";
 
 

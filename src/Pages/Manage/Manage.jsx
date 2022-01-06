@@ -34,14 +34,18 @@ function Manage() {
 
     return (
         <>      
+         
+        <div class="px-3 py-2 border-bottom mb-3 justify-content-center" align="center">
+            <Link to="/manage/wallet">Add Wallet</Link>   -
+            <Link to="/manage/project">Add Project</Link>                        
+        </div>
         <Container>
         <div >
         </div>
             <Row>
                 <Col></Col>
                 <Col xs={8} >
-                    <Link to="/manage/wallet">Add Wallet</Link>   -
-                    <Link to="/manage/project">Add Project</Link>
+                    
                     <Card>
                         <Table striped hover variant="dark">
                             <thead>

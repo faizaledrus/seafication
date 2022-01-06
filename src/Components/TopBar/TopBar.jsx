@@ -4,8 +4,8 @@ import './TopBar.css'
 
 import { Link } from "react-router-dom";
 
-import { Button, Container } from 'react-bootstrap';
-import { BiHomeAlt, BiCode, BiCoinStack, BiWater, BiCloudUpload } from "react-icons/bi";
+import { Button, Container,Navbar,Nav, Form,FormControl,NavDropdown } from 'react-bootstrap';
+import { BiHomeAlt, BiSliderAlt, BiNews, BiWalletAlt, BiStats, BiTrendingUp } from "react-icons/bi";
 
 // import { useEthers } from "@usedapp/core";
 import axios from 'axios';
@@ -54,60 +54,47 @@ function TopBar() {
     return (
         <>
             <header>
-                <div class="px-3 py-2 bg-dark text-white">
-                    <Container>
-                        <div class="d-flex align-items-center my-2 my-lg-0 me-lg-auto text-white text-decoration-none">
-                            <div class="d-flex align-items-center my-2 my-lg-0 me-lg-auto text-white text-decoration-none">
-                                <BiWater class="bi d-block mx-auto mb-1" />SeaFication
+            <Navbar bg="light" expand="lg" fixed="top">
+                <Container fluid>
+                    <Navbar.Brand href="#">DOCIAL.COM</Navbar.Brand>
+                    <Navbar.Toggle aria-controls="navbarScroll" />
 
-                            </div>
-
-                            <ul class="nav col-12 col-lg-auto my-2 justify-content-center my-md-0 text-small">
-                                <li class="nav-link text-white">
-                                    <svg class="bi d-block mx-auto mb-1" width="24" height="24"></svg>
-                                    <BiHomeAlt class="bi d-block mx-auto mb-1" /><Link to="/">Feed</Link>
-                                </li>
-                                <li class="nav-link text-white">
-                                    <svg class="bi d-block mx-auto mb-1" width="24" height="24"></svg>
-                                    <BiCloudUpload class="bi d-block mx-auto mb-1" /><Link to="/trending">Trending</Link>
-                                </li>
-                                <li class="nav-link text-white">
-                                    <svg class="bi d-block mx-auto mb-1" width="24" height="24"></svg>
-                                    <BiCoinStack class="bi d-block mx-auto mb-1" /><Link to="/manage">Manage</Link>
-                                </li>
-                                <li class="nav-link text-white">
-                                    <svg class="bi d-block mx-auto mb-1" width="24" height="24"></svg>
-                                    <BiCode class="bi d-block mx-auto mb-1" />Settings
-                                </li>
-                            </ul>
-                        </div>
-                    </Container>
-                </div>
-                <div class="px-3 py-2 border-bottom mb-3">
-                    <div class="container d-flex flex-wrap justify-content-center">
-                        <div class="col-12 col-lg-auto mb-2 mb-lg-0 me-lg-auto">
-                            Breadcrumb here
-                        </div>
-
-                        <div class="text-end">
+                    
+                    <Navbar.Collapse id="navbarScroll">
+                    <Nav
+                        className="me-auto my-2 my-lg-0 justify-content-center"
+                        style={{ maxHeight: '100px' }}
+                        navbarScroll
+                    >
+                        <Nav.Link href="#"><Link to="/"><BiNews class="bi d-block fs-2" /></Link></Nav.Link>
+                        <Nav.Link href="#"><Link to="/trending"><BiStats class="bi d-block fs-2" /></Link></Nav.Link>
+                        <Nav.Link href="#"><Link to="/manage"><BiWalletAlt class="bi d-block fs-2" /></Link></Nav.Link>
+                        <Nav.Link href="#"><Link to="/settings"><BiSliderAlt class="bi d-block fs-2" /></Link></Nav.Link>
+                       
+                    </Nav>
                             {account &&
                                 `${account.slice(0, 6)}...${account.slice(
                                     account.length - 4,
                                     account.length
                                 )}`}
-                            {' '}
-
+                            {'  '}
                             {/* if is not loggedin maka && mauapa  */}
                             {!isLoggedin && <Button variant="btn btn-primary" onClick={handleConnectWallet}>Connect Wallet</Button>}
-
-
                             {/* if is not loggedin maka ? mauapa :(else) isinya apa  */}
-                        </div>
-                    </div>
-                </div>
+
+                    
+                    </Navbar.Collapse>
+                </Container>
+                </Navbar>
+
+               
             </header>
 
-            <div class="b-example-divider"></div>
+            <div className="mb-4">
+                <br/>
+            </div>
+
+          
 
 
         </>
